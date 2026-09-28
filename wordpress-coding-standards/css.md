@@ -40,34 +40,8 @@ Incorrect:
 
 With specificity, comes great responsibility. Broad selectors allow us to be efficient, yet can have adverse consequences if not tested. Location-specific selectors can save us time, but will quickly lead to a cluttered stylesheet. Exercise your best judgment to create selectors that find the right balance between contributing to the overall style and layout of the DOM.
 
-### Legacy naming convention
-
-Similar to the [WordPress PHP Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/#naming-conventions) for file names, use lowercase and separate words with hyphens when naming selectors. Avoid camelcase and underscores.
-
-Selectors using this convention are extensively used in legacy stylesheets and they should not be changed for backward compatibility reasons.
-
-### New naming convention
-
-For new stylesheets, contributors are encouraged to use the new naming convention for class selectors.
-
-ID selectors are not encouraged but are sometimes unavoidable. Avoid them as much as possible. They should still use the legacy naming convention with only hyphens to separate words.
-
-For consistency with [the naming convention used in the block editor](https://github.com/wordpress/gutenberg/blob/trunk/docs/contributors/code/coding-guidelines.md#naming), class selectors are now allowed to use the [Two Dashes style of the BEM (Block, Element, Modifier) methodology](https://bem.info/en/methodology/naming-convention/#two-dashes-style).
-
-Example:
-
-```
-block-name__element-name--modifier-name
-```
-
-And when the modifier has a value:
-
-```
-block-name__element-name--modifier-name_modifier-value
-```
-
-### General recommendations
-
+- Similar to the [WordPress PHP Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/#naming-conventions) for file names, use lowercase and separate words with hyphens when naming selectors. Avoid camelcase and underscores.
+- Use human readable selectors that describe what element(s) they style.
 - Attribute selectors should use double quotes around values.
 - Refrain from using over-qualified selectors, `div.container` can simply be stated as `.container`.
 
@@ -80,18 +54,6 @@ Correct:
 
 [type="text"] {
 	line-height: 1.1;
-}
-
-.about__section {
-	margin: 1em 0;
-}
-
-.wp-tooltip__toggle {
-	margin: 1em 0;
-}
-
-.card__title--size_medium {
-	font-size: 1rem;
 }
 ```
 
@@ -124,8 +86,9 @@ input[type=text] { /&042; Should be [type="text"] &042;/
 Similar to selectors, properties that are too specific will hinder the flexibility of the design. Less is more. Make sure you are not repeating styling or introducing fixed dimensions (when a fluid solution is more acceptable).
 
 - Properties should be followed by a colon and a space.
-- All properties should be lowercase.
-- All values should be lowercase, except for font names and vendor-specific properties. Additional exceptions are:
+- All properties should be lowercase, except for vendor-specific properties.
+- All values should be lowercase, except for font names.
+- Additional exceptions are:
   - `currentColor`
   - `optimizeLegibility`
 - Use hex code for colors, or `rgba()` if opacity is needed. Avoid RGB format and uppercase.
