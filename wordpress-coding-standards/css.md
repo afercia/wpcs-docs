@@ -94,6 +94,7 @@ Similar to selectors, properties that are too specific will hinder the flexibili
 - Use hex code for colors, or `rgba()` if opacity is needed. Avoid RGB format and uppercase.
 - Shorten color values when possible: `#fff` instead of `#FFFFFF`.
 - Use shorthand, except when overriding styles, for `background`, `border`, `font`, `list-style`, `margin`, and `padding` values as much as possible. For a shorthand reference, see [CSS Shorthand](https://codex.wordpress.org/CSS_Shorthand).
+- Avoid the `order` property. For accessibility reasons, visual, reading, and DOM order must match. Only use the `order` property when it does not affect reading order, meaning, and interaction.
 
 Correct:
 
@@ -188,6 +189,7 @@ There are numerous ways to input values for properties. Follow the guidelines be
 - Use a leading zero for decimal values, including in `rgba()`.
 - Multiple comma-separated values for one property should be separated by either a space or a newline. For better readability newlines should be used for lengthier multi-part values such as those for shorthand properties like `box-shadow` and `text-shadow`, including before the first value. Values should then be indented one level in from the property.
 - Lists of values within a value, like within `rgba()`, should be separated by a space.
+- Avoid all the `*-reverse` values. For accessibility reasons, visual, reading, and DOM order must match. Only use them when they do not affect reading order, meaning, and interaction.
 
 Correct:
 
